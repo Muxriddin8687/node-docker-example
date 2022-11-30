@@ -1,0 +1,16 @@
+name: Node github ci/cd example
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test_pull_request: 
+    runs-on: ubuntu-latest
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        version: 12
+    - run: npm ci
+    - run: npm run test
+  
